@@ -34,8 +34,9 @@
     if(crt.classList.contains('no-cursor')) {
         crt.classList.remove('no-cursor');
     }
-    crt.style.setProperty('--mouseX', e.clientX);
-    crt.style.setProperty('--mouseY', e.clientY);
+    document.body.style.setProperty('--mouseX', e.clientX);
+    document.body.style.setProperty('--mouseY', e.clientY);
+    document.body.style.setProperty('--text-glitch-scale', (Math.abs(crt.offsetHeight/2 - e.clientY)/crt.clientHeight) * 3 + 0.2) * ((Math.abs(crt.clientWidth/2 - e.clientX)/crt.clientWidth) * 3 + 0.2);
 });
 </script>
 </html>
