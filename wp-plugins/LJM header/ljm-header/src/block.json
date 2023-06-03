@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/ljm-header",
+	"version": "0.1.0",
+	"title": "LJM bold header",
+	"category": "widgets",
+	"icon": "align-full-width",
+	"description": "Limity Jsme My custom bold header widget, made with love by Jirka.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ljm-header",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+	  "title": {
+		  "type": "string",
+		  "source": "text",
+		  "selector": "div",
+		  "default": "POWER TO THE PEOPLE!"
+	  },
+	  "glitch_color_1": { "type": "string", "default": "#43ff6fb2" },
+	  "glitch_color_2": { "type": "string", "default": "#4398ffa2" },
+	  "text_color": { "type": "string", "default": "#ff3849" },
+	  "mediaId": {
+		"type": "number",
+		"default": 0
+	  },
+	  "mediaUrl": {
+		"type": "string",
+		"default": "http://dev.ccflow.ai/wp-content/themes/custom/assets/images/casette_frame_mockup.png"
+	  }
+  }
+}
