@@ -8,72 +8,65 @@ const { Button } = wp.components;
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 export default function Edit({ attributes, isSelected, setAttributes }) {
-	const onChangeGlitchColor1 = ( hexColor ) => {
-		setAttributes( { glitch_color_1: hexColor } );
-	};
-
-	const onChangeGlitchColor2 = ( hexColor ) => {
-		setAttributes( { glitch_color_2: hexColor } );
-	};
-
-	const onChangeTextColor = ( hexColor ) => {
-		setAttributes( { text_color: hexColor } );
-	};
-
 	return (
-		<Fragment><InspectorControls key="setting">
-		<div id="gutenpride-controls">
-			<fieldset>
-				<legend className="blocks-base-control__label">
-					{ __( 'Glitch color 1', 'gutenpride' ) }
-				</legend>
-				<ColorPalette // Element Tag for Gutenberg standard colour selector
-					onChange={ onChangeGlitchColor1 } // onChange event callback
-				/>
-			</fieldset>
-			<fieldset>
-				<legend className="blocks-base-control__label">
-					{ __( 'Glitch color 2', 'gutenpride' ) }
-				</legend>
-				<ColorPalette // Element Tag for Gutenberg standard colour selector
-					onChange={ onChangeGlitchColor2 } // onChange event callback
-				/>
-			</fieldset>
-			<fieldset>
-				<legend className="blocks-base-control__label">
-					{ __( 'Text color', 'gutenpride' ) }
-				</legend>
-				<ColorPalette // Element Tag for Gutenberg standard colour selector
-					onChange={ onChangeTextColor } // onChange event callback
-				/>
-			</fieldset>
-		</div>
-	</InspectorControls>
 			<div {...useBlockProps()}>
-				{attributes.title && attributes.mediaUrl && !isSelected ? (
-					<div style={"--title-color:"+attributes.text_color+";--text-glitch-color-1:"+attributes.glitch_color_1+";--text-glitch-color-2:"+attributes.glitch_color_2}>
+				{attributes.title && !isSelected ? (
+					<div>
 						<div class="crt no-cursor">
 							<div class="bg-cover-monochrome"></div>
 							<div class="bg-cover"></div>
-							<div style="position: fixed; z-index: -99; width: 100%; height: 100%">
-							</div>
 							<div class="title">{attributes.title}</div></div>
 					</div>
 				) : (
 					<Placeholder
-						label="Yellow Fusion section"
-						instructions="Add your message"
+						label="LJM header"
+						instructions="Custom LJM hedaer - lidl solution but it works"
 					>
+						<span>title</span>
 						<TextControl
 							value={attributes.title}
 							onChange={(val) =>
 								setAttributes({ title: val })
 							}
 						/>
+						<span>bg img url 1</span>
+						<TextControl
+							value={attributes.bg_image_1}
+							onChange={(val) =>
+								setAttributes({ bg_image_1: val })
+							}
+						/>
+						<span>bg img url 2</span>
+						<TextControl
+							value={attributes.bg_image_2}
+							onChange={(val) =>
+								setAttributes({ bg_image_2: val })
+							}
+						/>
+						<span>title color</span>
+						<TextControl
+							value={attributes.text_color}
+							onChange={(val) =>
+								setAttributes({ text_color: val })
+							}
+						/>
+						<span>--text-glitch-color-1</span>
+						<TextControl
+							value={attributes.glitch_color_1}
+							onChange={(val) =>
+								setAttributes({ glitch_color_1: val })
+							}
+						/>
+						<span>--text-glitch-color-2</span>
+						<TextControl
+							value={attributes.glitch_color_1}
+							onChange={(val) =>
+								setAttributes({ glitch_color_1: val })
+							}
+						/>
 					</Placeholder>
 				)}
 			</div>
-			</Fragment>
 	);
 }
 

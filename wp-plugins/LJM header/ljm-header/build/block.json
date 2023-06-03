@@ -21,17 +21,35 @@
       "selector": "div",
       "default": "POWER TO THE PEOPLE!"
     },
-    "glitch_color_1": {
+    "bg_image_1": {
       "type": "string",
-      "default": "#43ff6fb2"
+      "source": "text",
+      "selector": "div",
+      "default": "https://limityjsmemy.cz/wp-content/uploads/2018/09/10.jpg"
     },
-    "glitch_color_2": {
+    "bg_image_2": {
       "type": "string",
-      "default": "#4398ffa2"
+      "source": "text",
+      "selector": "div",
+      "default": "https://limityjsmemy.cz/wp-content/uploads/2016/10/13064557_1189359104410080_3148805146143209369_o.jpg"
     },
     "text_color": {
       "type": "string",
+      "source": "text",
+      "selector": "div",
       "default": "#ff3849"
+    },
+    "glitch_color_1": {
+      "type": "string",
+      "source": "text",
+      "selector": "div",
+      "default": "#4398ffa2"
+    },
+    "glitch_color_2": {
+      "type": "string",
+      "source": "text",
+      "selector": "div",
+      "default": "#4398ffa2"
     },
     "mediaId": {
       "type": "number",
