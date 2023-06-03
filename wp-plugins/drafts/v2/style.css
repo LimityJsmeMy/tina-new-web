@@ -5,13 +5,13 @@ body {
     --grid-vertical-color-0: #ff00001f;
     --grid-vertical-color-1: #00ff000f;
     --grid-vertical-color-2: #0000ff1f;
-    --title-color:#43ff6f;
+    --title-color:#ff3849;
     --text-glitch-color-0: #43ff6fb2;
-    --text-glitch-color-1: #43ff6fa2;
+    --text-glitch-color-1: #4398ffa2;
     --text-glitch-scale: 1;
     --mouseX: 0; 
     --mouseY: 0;
-    --img-size: 30vw;
+    --img-size: 10vw;
     margin: 0;
     background-color: #000000;
 }
@@ -224,7 +224,7 @@ body {
   .title {
     font-family: 'Rubik Spray Paint', cursive;
 /* font-family: 'Splash', cursive; */
-    color: #43ff6f;
+    color: var(--title-color);
     font-size: 7vw;
     line-height: 7vw;
     position: absolute;
@@ -263,7 +263,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url("assets/35192798240_e07ab0c3ca_h.jpg");
+    background-image: url("assets/13179069_1189359167743407_290940268895134452_n.jpg");
     background-size: cover;
     filter: grayscale(1) brightness(0.6);
     box-shadow: 0 0 30vw rgba(0, 0, 0, 0.53) inset;
@@ -279,14 +279,14 @@ body {
     background-image: url("assets/35192798240_e07ab0c3ca_h.jpg");
     background-size: cover;
     filter: grayscale(0);
-    -webkit-mask-image: radial-gradient(circle, #000000ff 0, #00000000 var(--img-size));
-          mask-image: radial-gradient(circle,#ffffff 0, #000000 var(--img-size));
+    -webkit-mask-image: radial-gradient(circle, #000000ff 0, #000000ff calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)), #00000000 calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)));
+          mask-image: radial-gradient(circle,#ffffff 0, #000000ff  calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)), #000000  calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)));
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
-          -webkit-mask-size: calc(var(--img-size) * 2) calc(var(--img-size) * 2);
-          mask-size: calc(var(--img-size) * 2) calc(var(--img-size) * 2);   
-  -webkit-mask-position: calc(calc(var(--mouseX) * 1px) - var(--img-size)) calc(calc(var(--mouseY) * 1px) - var(--img-size));
-          mask-position: calc(calc(var(--mouseX) * 1px) - var(--img-size)) calc(calc(var(--mouseY) * 1px) - var(--img-size));;
+          -webkit-mask-size: calc( calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)) * 2) calc( calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)) * 2);
+          mask-size: calc( calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)) * 2) calc( calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)) * 2);   
+  -webkit-mask-position: calc(calc(var(--mouseX) * 1px) -  calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4))) calc(calc(var(--mouseY) * 1px) -  calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)));
+          mask-position: calc(calc(var(--mouseX) * 1px) -  calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4))) calc(calc(var(--mouseY) * 1px) -  calc(var(--img-size) / calc(var( --text-glitch-scale) + 0.4)));;
           opacity: 0;
           transition: opacity 0.4s;
   }

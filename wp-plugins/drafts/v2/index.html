@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Limity jsme my</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Splash&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="crt no-cursor">
+        <div class="bg-cover-monochrome"></div>
+        <div class="bg-cover"></div>
+        <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+<!--             <iframe
+              frameborder="0"
+              height="100%"
+              width="100%"
+              src="https://youtube.com/embed/org2WRGF7Fg?autoplay=1&controls=0&showinfo=0&autohide=1"
+            >
+            </iframe> -->
+          </div>
+        <div class="title">CLIMATE<br>JUSTICE!</div></div>
+    <div class="header-mockup"><div class="logo"><img src="assets/Logo-Dark-Background.svg"></div><div class="menu"><span>Novinky</span><span>O nás</span><span>Historie</span><span>Zapoj se</span><span>Pro média</span></div></div>
+</body>
+<script>
+    console.log('adding listener');
+    var crt = document.querySelector('.crt');
+    console.log(crt);
+
+    document.body.addEventListener('pointermove', function (e) {     
+    console.log('listened');
+    if(crt.classList.contains('no-cursor')) {
+        crt.classList.remove('no-cursor');
+    }
+    document.body.style.setProperty('--mouseX', e.clientX);
+    document.body.style.setProperty('--mouseY', e.clientY);
+    document.body.style.setProperty('--text-glitch-scale', (Math.abs(crt.offsetHeight/2 - e.clientY)/crt.clientHeight) * 3 + 0.2) * ((Math.abs(crt.clientWidth/2 - e.clientX)/crt.clientWidth) * 3 + 0.2);
+});
+</script>
+</html>
