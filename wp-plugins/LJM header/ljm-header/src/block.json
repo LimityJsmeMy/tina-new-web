@@ -58,6 +58,12 @@
 	  "mediaUrl": {
 		"type": "string",
 		"default": "http://dev.ccflow.ai/wp-content/themes/custom/assets/images/casette_frame_mockup.png"
+	  },
+	  "backgroundColor": {
+		  "type": "string"
+	  },	 
+	  "textColor": {
+		  "type": "string"
 	  }
   }
 }

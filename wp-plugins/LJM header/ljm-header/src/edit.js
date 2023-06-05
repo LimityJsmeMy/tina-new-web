@@ -1,72 +1,77 @@
 import { Placeholder, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { useBlockProps } from "@wordpress/block-editor";
-const { InspectorControls } = wp.blockEditor;
+import { 
+	useBlockProps, 
+	RichText, 
+	AlignmentControl, 
+	BlockControls,
+	InspectorControls,
+	PanelColorSettings
+} from '@wordpress/block-editor';
 const { PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { Button } = wp.components;
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 export default function Edit({ attributes, isSelected, setAttributes }) {
+
+	const blockProps = useBlockProps();
+
+	const { content, align, backgroundColor, textColor } = attributes;
+
+	const onChangeContent = ( newContent ) => {
+		setAttributes( { content: newContent } )
+	}
+	const onChangeAlign = ( newAlign ) => {
+		setAttributes( { 
+			align: newAlign === undefined ? 'none' : newAlign, 
+		} )
+	}
+
+	const onChangeBackgroundColor = ( newBackgroundColor ) => {
+		setAttributes( { backgroundColor: newBackgroundColor } )
+	}
+	
+	const onChangeTextColor = ( newTextColor ) => {
+		setAttributes( { textColor: newTextColor } )
+	}
+
 	return (
-			<div {...useBlockProps()}>
-				{attributes.title && !isSelected ? (
-					<div>
-						<div class="crt no-cursor">
-							<div class="bg-cover-monochrome"></div>
-							<div class="bg-cover"></div>
-							<div class="title">{attributes.title}</div></div>
-					</div>
-				) : (
-					<Placeholder
-						label="LJM header"
-						instructions="Custom LJM hedaer - lidl solution but it works"
-					>
-						<span>title</span>
-						<TextControl
-							value={attributes.title}
-							onChange={(val) =>
-								setAttributes({ title: val })
-							}
-						/>
-						<span>bg img url 1</span>
-						<TextControl
-							value={attributes.bg_image_1}
-							onChange={(val) =>
-								setAttributes({ bg_image_1: val })
-							}
-						/>
-						<span>bg img url 2</span>
-						<TextControl
-							value={attributes.bg_image_2}
-							onChange={(val) =>
-								setAttributes({ bg_image_2: val })
-							}
-						/>
-						<span>title color</span>
-						<TextControl
-							value={attributes.text_color}
-							onChange={(val) =>
-								setAttributes({ text_color: val })
-							}
-						/>
-						<span>--text-glitch-color-1</span>
-						<TextControl
-							value={attributes.glitch_color_1}
-							onChange={(val) =>
-								setAttributes({ glitch_color_1: val })
-							}
-						/>
-						<span>--text-glitch-color-2</span>
-						<TextControl
-							value={attributes.glitch_color_1}
-							onChange={(val) =>
-								setAttributes({ glitch_color_1: val })
-							}
-						/>
-					</Placeholder>
-				)}
-			</div>
+		<>
+			<InspectorControls>
+				<PanelColorSettings 
+					title={ __( 'Color settings', 'ka-example-block' ) }
+					initialOpen={ false }
+					colorSettings={ [
+						{
+						  value: textColor,
+						  onChange: onChangeTextColor,
+						  label: __( 'Text color', 'ka-example-block' )
+						},
+						{
+						  value: backgroundColor,
+						  onChange: onChangeBackgroundColor,
+						  label: __( 'Background color', 'ka-example-block' )
+						}
+					] }
+				/>
+			</InspectorControls>
+			<BlockControls>
+				<AlignmentControl
+					value={ align }
+					onChange={ onChangeAlign }
+				/>
+			</BlockControls>
+			<RichText 
+				{ ...blockProps }
+				tagName="p"
+				onChange={ onChangeContent }
+				allowedFormats={ [ 'core/bold', 'core/italic' ] }
+				value={ content }
+				placeholder={ __( 'Write your text...' ) }
+				style={ { textAlign: align, backgroundColor: backgroundColor, color: textColor } }
+			/>
+		</>
 	);
 }
 
