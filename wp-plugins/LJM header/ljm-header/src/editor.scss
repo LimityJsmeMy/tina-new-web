@@ -293,3 +293,9 @@ body {
   .crt:not(.no-cursor):hover .bg-cover {
     opacity: 1;
   }
+  .img-preview {
+	width: 400px;
+	height: 400px;
+	background-size: contain;
+	background-repeat: no-repeat;
+  }

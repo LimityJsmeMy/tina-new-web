@@ -17,53 +17,31 @@
   "attributes": {
     "title": {
       "type": "string",
-      "source": "text",
-      "selector": "div",
       "default": "POWER TO THE PEOPLE!"
-    },
-    "bg_image_1": {
-      "type": "string",
-      "source": "text",
-      "selector": "div",
-      "default": "https://limityjsmemy.cz/wp-content/uploads/2018/09/10.jpg"
-    },
-    "bg_image_2": {
-      "type": "string",
-      "source": "text",
-      "selector": "div",
-      "default": "https://limityjsmemy.cz/wp-content/uploads/2016/10/13064557_1189359104410080_3148805146143209369_o.jpg"
     },
     "text_color": {
       "type": "string",
-      "source": "text",
-      "selector": "div",
-      "default": "#ff3849"
+      "default": "rgb(255 56 73)"
     },
     "glitch_color_1": {
       "type": "string",
-      "source": "text",
-      "selector": "div",
-      "default": "#4398ffa2"
+      "default": "rgb(67 255 111 / 70%)"
     },
     "glitch_color_2": {
       "type": "string",
-      "source": "text",
-      "selector": "div",
-      "default": "#4398ffa2"
+      "default": "rgb(67 152 255 / 64%)"
     },
-    "mediaId": {
-      "type": "number",
-      "default": 0
+    "image1": {
+      "type": "object",
+      "default": {
+        "url": "https://limityjsmemy.cz/wp-content/uploads/2018/09/10.jpg"
+      }
     },
-    "mediaUrl": {
-      "type": "string",
-      "default": "http://dev.ccflow.ai/wp-content/themes/custom/assets/images/casette_frame_mockup.png"
-    },
-    "backgroundColor": {
-      "type": "string"
-    },
-    "textColor": {
-      "type": "string"
+    "image2": {
+      "type": "object",
+      "default": {
+        "url": "https://limityjsmemy.cz/wp-content/uploads/2016/10/13064557_1189359104410080_3148805146143209369_o.jpg"
+      }
     }
   }
 }
