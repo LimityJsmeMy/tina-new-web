@@ -38,11 +38,6 @@ function enqueue_custom_script() {
 			// Script version number
 			true // Load the script in the footer
 		);
-
-		$block_attributes = get_query_var( 'attributes' );
-
-        // Pass attributes to the script
-        wp_localize_script( 'my-custom-script', 'blockAttributes', $block_attributes );
     }
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_custom_script' );

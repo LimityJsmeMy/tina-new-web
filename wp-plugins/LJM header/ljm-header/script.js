@@ -2,9 +2,6 @@ console.log('adding listener nr2');
 var crt = document.getElementById("crt-dom");
 console.log(crt);
 
-console.log(blockAttributes.text_color);
-console.log(blockAttributes.glitch_color_1);
-
 console.log(document.body);
 crt.addEventListener('pointermove', function (e) {     
 console.log('listened');
