@@ -15,6 +15,10 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "center"
+		},
 		"title": {
 			"type": "string",
 			"default": "POWER TO THE PEOPLE!"
@@ -30,6 +34,10 @@
 		"glitch_color_2": {
 			"type": "string",
 			"default": "rgb(67 152 255 / 64%)"
+		},
+		"flickering_color": {
+			"type": "string",
+			"default": "rgb(0 0 0 / 12%)"
 		},
 		"image1": {
 			"type": "object",

@@ -1,15 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap');
 
 body {
-    --flicker-color: #00000021;
     --grid-horizontal-color-0: #00000023;
     --grid-horizontal-color-1: #12101000;
     --grid-vertical-color-0: #ff00001f;
     --grid-vertical-color-1: #00ff000f;
     --grid-vertical-color-2: #0000ff1f;
-    --title-color:#ff3849;
-    --text-glitch-color-0: #43ff6fb2;
-    --text-glitch-color-1: #4398ffa2;
     --text-glitch-scale: 1;
     --mouseX: 0; 
     --mouseY: 0;
@@ -215,12 +211,12 @@ body {
     pointer-events: none;
   }
   .crt {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 800px;
     background-color: #11111419;
     animation: textShadow 1.6s infinite;
-    opacity: 0;
+    opacity: 1;
   }
   .title {
     font-family: 'Rubik Spray Paint', cursive;
@@ -231,6 +227,13 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+  .crt.preview {
+	min-height: 450px;
+	.title {
+		font-size: 26pt;
+		line-height: 26pt;
+	  }
   }
   .header-mockup {
     position: absolute;
@@ -296,7 +299,7 @@ body {
   .img-preview {
 	position: relative;
 	width: 100%;
-	min-height: 400px;
+	min-height: 450px;
   }
   .bg-img-1 {
 	position: absolute;
