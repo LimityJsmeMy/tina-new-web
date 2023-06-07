@@ -20,7 +20,29 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_ljm_header_block_init() {
-	register_block_type( __DIR__ . '/build' );
+function create_block_ljm_header_block_init()
+{
+	register_block_type(__DIR__ . '/build');
 }
-add_action( 'init', 'create_block_ljm_header_block_init' );
+add_action('init', 'create_block_ljm_header_block_init');
+
+function enqueue_custom_script() {
+    if ( ! is_admin() ) {
+        wp_enqueue_script(
+			'my-custom-script',
+			// Unique script handle
+			plugins_url('/script.js', __FILE__), // Path to your script file
+			array(),
+			// Dependencies, if any
+			'1.0',
+			// Script version number
+			true // Load the script in the footer
+		);
+
+		$block_attributes = get_query_var( 'attributes' );
+
+        // Pass attributes to the script
+        wp_localize_script( 'my-custom-script', 'blockAttributes', $block_attributes );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_script' );
